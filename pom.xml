@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>lyc1116</groupId>
@@ -6,6 +7,45 @@
   <packaging>pom</packaging>
   <name>zPush</name>
   <description>A notification push service</description>
+  <properties>
+  	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>		
+      <junit.version>4.10</junit.version>
+      <fastjson.version>1.1.36</fastjson.version>
+  </properties>
+  <dependencies>
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.6</version>
+		</dependency>
+
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+	</dependencies>
   <developers>
     <developer>
       <id>lyc1116</id>
@@ -14,4 +54,7 @@
 	  <url>https://github.com/lyc1116/zPush.git</url>
     </developer>
   </developers>
+  <modules>
+    <module>zPush-api</module>
+  </modules>
 </project>
