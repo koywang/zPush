@@ -54,7 +54,4 @@
 	  <url>https://github.com/lyc1116/zPush.git</url>
     </developer>
   </developers>
-  <modules>
-    <module>zPush-api</module>
-  </modules>
 </project>
