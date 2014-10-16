@@ -9,10 +9,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lyc.zpush.common.ResultDto;
+import com.lyc.zpush.error.Error;
 import com.lyc.zpush.service.AppService;
 
 /**
@@ -30,15 +32,21 @@ public class AppFacade {
 	@Path("/regAndroidApp")
 	@Produces({MediaType.APPLICATION_JSON+";charset=utf-8"})
 	public ResultDto registerAndroidApp(@FormParam("appName") String appName){
-		
-		return null;
+		if(StringUtils.isBlank(appName)){
+			ResultDto resultDto = new ResultDto(false, Error.APP_NAME_INVALIED);
+			return resultDto;
+		}
+		return appService.registerAndroidApp(appName);
 	}
 	
 	@POST
 	@Path("/regIosApp")
 	@Produces({MediaType.APPLICATION_JSON+";charset=utf-8"})
 	public ResultDto registerIosApp(@FormParam("appName") String appName){
-		
-		return null;
+		if(StringUtils.isBlank(appName)){
+			ResultDto resultDto = new ResultDto(false, Error.APP_NAME_INVALIED);
+			return resultDto;
+		}
+		return appService.registerIosApp(appName);
 	}
 }

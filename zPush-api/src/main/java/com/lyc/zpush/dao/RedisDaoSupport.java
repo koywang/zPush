@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +17,48 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
+import com.alibaba.fastjson.JSON;
+
 
 /**
  * @author yuancen.li
  * @since 2014年10月15日  下午4:27:58
  */
 @Component
-public class RedisDao {
+public class RedisDaoSupport<T> {
 	
-	private static Logger logger = LoggerFactory.getLogger(RedisDao.class);
+	private static Logger logger = LoggerFactory.getLogger(RedisDaoSupport.class);
+	
+	/*
+	 * usage: store increment id
+	 * datastruct: hash
+	 */
+	public static final String KEY_COUNTER = "counter";
+	public static final String FIELD_APPID = "appId";
+	
+	/*
+	 * usage: store app
+	 * datastruct: hash
+	 */
+	public static final String KEY_APP = "app";
+
 
 	@Autowired
 	private ShardedJedisPool shardedJedisPool;
+	
+	public String serialize(T t){
+		if(t == null){
+			return "";
+		}
+		return JSON.toJSONString(t);
+	}
+	
+	public T deserialize(String str, Class<T> clazz){
+		if(StringUtils.isBlank(str)){
+			return null;
+		}
+		return JSON.parseObject(str,clazz);
+	}
 	
 	public void set(String key,String value){
 		ShardedJedis shardedJedis = null;
@@ -267,6 +298,7 @@ public class RedisDao {
 		}
 		return 0l;
 	}
+	
 	
 	public boolean hexists(String key, String field){
 		ShardedJedis shardedJedis = null;
