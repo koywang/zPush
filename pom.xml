@@ -67,7 +67,7 @@
 				 	<effort>Default</effort>
 				 	<findbugsXmlOutput>true</findbugsXmlOutput>
 				 	<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-					<findbugsXmlOutputDirectory>/target/findbugs</findbugsXmlOutputDirectory>
+					<findbugsXmlOutputDirectory>target/findbugs</findbugsXmlOutputDirectory>
 				 	<xmlOutput>true</xmlOutput>
 				 	<formats><format>html</format></formats>
 				 </configuration>
