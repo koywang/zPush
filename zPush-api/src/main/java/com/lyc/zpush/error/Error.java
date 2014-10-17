@@ -9,7 +9,12 @@ package com.lyc.zpush.error;
  */
 public enum Error {
 
-	APP_NAME_INVALIED("0x0001","应用名称非法");
+	APP_NAME_INVALIED("0x0001","应用名称非法"),
+	APP_ID_INVALIED("0x0002","应用Id非法"),
+	APP_KEY_INVALIED("0x0003","应用Key非法"),
+	CLIENT_ID_INVALIED("0x0004","客户Id非法"),
+	CONTENT_NULL("0x0005","推送内容为空"),
+	APP_ID_NOT_EXIST("0x0006","应用Id不存在");
 	
 	private String code;
 	private String desc;

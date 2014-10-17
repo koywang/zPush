@@ -42,7 +42,7 @@ public class AppServiceImpl implements AppService{
 		ThreadLocalRandom.current().nextBytes(b);
 		app.setAppKey(DigestUtils.md5Hex(b));
 		app.setAppType(AppType.Android);
-		appDao.saveApp(app);
+		appDao.save(app);
 		
 		BeanResultDto<App> resultDto = new BeanResultDto<App>();
 		resultDto.setSuccess(true);
@@ -63,7 +63,7 @@ public class AppServiceImpl implements AppService{
 		ThreadLocalRandom.current().nextBytes(b);
 		app.setAppKey(DigestUtils.md5Hex(b));
 		app.setAppType(AppType.IOS);
-		appDao.saveApp(app);
+		appDao.save(app);
 		
 		BeanResultDto<App> resultDto = new BeanResultDto<App>();
 		resultDto.setSuccess(true);

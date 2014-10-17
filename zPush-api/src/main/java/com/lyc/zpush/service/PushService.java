@@ -3,8 +3,8 @@
  */
 package com.lyc.zpush.service;
 
-import com.lyc.zpush.bean.App;
-import com.lyc.zpush.bean.Payload;
+import java.util.Map;
+
 import com.lyc.zpush.common.ResultDto;
 
 /**
@@ -13,9 +13,6 @@ import com.lyc.zpush.common.ResultDto;
  */
 public interface PushService {
 
-	ResultDto pushToSingle(App app, Payload payload);
+	ResultDto pushToSingle(String appId, String appKey, String clientId, String content, Map<String, String> params, long timeout);
 	
-	ResultDto pushToApp(App app, Payload payload);
-	
-	ResultDto pushToTag(App app, Payload payload);
 }

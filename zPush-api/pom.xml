@@ -16,6 +16,7 @@
 		<jersey.version>1.17.1</jersey.version>
 		<spring.version>3.2.9.RELEASE</spring.version>
 		<jedis.version>2.6.0</jedis.version>
+		<kafka.version>0.8.1.1</kafka.version>
 		<guava.version>18.0</guava.version>
 		<commons.lang.version>3.3.2</commons.lang.version>
 		<commons.collections.version>4.0</commons.collections.version>
@@ -124,6 +125,13 @@
 			<version>${jedis.version}</version>
 		</dependency>
 
+		<!-- kafka -->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.9.2</artifactId>
+			<version>${kafka.version}</version>
+		</dependency>
+
 		<!-- guava -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -157,7 +165,7 @@
 			<filter>config/${env}.properties</filter>
 		</filters>
 		<plugins>
-			
+
 		</plugins>
 	</build>
 </project>

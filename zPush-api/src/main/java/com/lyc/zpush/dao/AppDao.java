@@ -11,7 +11,7 @@ import com.lyc.zpush.bean.App;
  */
 public interface AppDao {
 
-	void saveApp(App app);
+	void save(App app);
 	
 	App queryById(String appId);
 }

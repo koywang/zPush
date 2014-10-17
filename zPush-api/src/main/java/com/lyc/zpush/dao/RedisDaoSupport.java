@@ -32,6 +32,7 @@ public class RedisDaoSupport<T> {
 	/*
 	 * usage: store increment id
 	 * datastruct: hash
+	 * spec: key:counter,field:appId,value:$counter
 	 */
 	public static final String KEY_COUNTER = "counter";
 	public static final String FIELD_APPID = "appId";
@@ -39,8 +40,16 @@ public class RedisDaoSupport<T> {
 	/*
 	 * usage: store app
 	 * datastruct: hash
+	 * spec: key:app,field:$appid,value:$appBean
 	 */
 	public static final String KEY_APP = "app";
+	
+	/**
+	 * usage : store message
+	 * datastruct: hash
+	 * spec : key:msg,field:$uuid,value:$messageBean
+	 */
+	public static final String KEY_MESSAGE = "msg";
 
 
 	@Autowired

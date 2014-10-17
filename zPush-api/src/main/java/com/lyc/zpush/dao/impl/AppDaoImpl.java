@@ -20,7 +20,7 @@ public class AppDaoImpl extends RedisDaoSupport<App> implements AppDao{
 	 * @see com.lyc.zpush.dao.AppDao#saveApp(com.lyc.zpush.bean.App)
 	 */
 	@Override
-	public void saveApp(App app) {
+	public void save(App app) {
 		// TODO Auto-generated method stub
 		hset(KEY_APP, app.getAppId(), serialize(app));
 	}
