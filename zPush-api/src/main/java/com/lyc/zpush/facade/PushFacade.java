@@ -3,8 +3,6 @@
  */
 package com.lyc.zpush.facade;
 
-import java.util.Map;
-
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -38,7 +36,7 @@ public class PushFacade {
 								  @FormParam("appKey") String appKey,
 								  @FormParam("clientId") String clientId,
 								  @FormParam("content") String content,
-								  @FormParam("params") Map<String, String> params,
+								  @FormParam("params") JSONObject params,
 								  @FormParam("timeout") long timeout){
 		if(StringUtils.isBlank(appId)){
 			return new ResultDto(false, Error.APP_ID_INVALIED);
@@ -63,8 +61,16 @@ public class PushFacade {
 							   @FormParam("content") String content,
 							   @FormParam("timeout") long timeout,
 							   @FormParam("params") JSONObject params){
-		
-		return null;
+		if(StringUtils.isBlank(appId)){
+			return new ResultDto(false, Error.APP_ID_INVALIED);
+		}
+		if(StringUtils.isBlank(appKey)){
+			return new ResultDto(false, Error.APP_KEY_INVALIED);
+		}
+		if(StringUtils.isBlank(content)){
+			return new ResultDto(false, Error.CONTENT_NULL);
+		}
+		return pushService.pushToApp(appId, appKey, content, params, timeout);
 	}
 	
 	@POST
@@ -76,8 +82,19 @@ public class PushFacade {
 							   @FormParam("content") String content,
 							   @FormParam("timeout") long timeout,
 							   @FormParam("params") JSONObject params){
-		
-		return null;
+		if(StringUtils.isBlank(appId)){
+			return new ResultDto(false, Error.APP_ID_INVALIED);
+		}
+		if(StringUtils.isBlank(appKey)){
+			return new ResultDto(false, Error.APP_KEY_INVALIED);
+		}
+		if(StringUtils.isBlank(tag)){
+			return new ResultDto(false, Error.TAG_NAME_INVALID);
+		}
+		if(StringUtils.isBlank(content)){
+			return new ResultDto(false, Error.CONTENT_NULL);
+		}
+		return pushService.pushToTag(appId, appKey, tag, content, params, timeout);
 	}
 	
 	

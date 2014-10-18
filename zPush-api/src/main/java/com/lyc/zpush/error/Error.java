@@ -14,7 +14,8 @@ public enum Error {
 	APP_KEY_INVALIED("0x0003","应用Key非法"),
 	CLIENT_ID_INVALIED("0x0004","客户Id非法"),
 	CONTENT_NULL("0x0005","推送内容为空"),
-	APP_ID_NOT_EXIST("0x0006","应用Id不存在");
+	APP_ID_NOT_EXIST("0x0006","应用Id不存在"),
+	TAG_NAME_INVALID("0x0007","标签名非法");
 	
 	private String code;
 	private String desc;

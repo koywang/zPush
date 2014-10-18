@@ -42,12 +42,12 @@ public class JerseyTestRule implements TestRule{
 		.contextParam("contextConfigLocation",
 				"classpath:/applicationContext-test.xml")
 		.servletClass(SpringServlet.class)
-		.servletPath("/service/*")
+		.servletPath("/api/*")
 		.initParam(
 				"com.sun.jersey.config.property.resourceConfigClass",
 				"com.sun.jersey.api.core.PackagesResourceConfig")
 		.initParam("com.sun.jersey.config.property.packages",
-				"com.garea.cloud.facade")
+				"com.lyc.zpush.facade")
 		.initParam("com.sun.jersey.api.json.POJOMappingFeature", "true")
 		.contextListenerClass(ContextLoaderListener.class)
 		.requestListenerClass(RequestContextListener.class).build();

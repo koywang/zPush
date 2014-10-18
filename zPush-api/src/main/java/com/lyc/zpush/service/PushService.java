@@ -3,7 +3,7 @@
  */
 package com.lyc.zpush.service;
 
-import java.util.Map;
+import org.codehaus.jettison.json.JSONObject;
 
 import com.lyc.zpush.common.ResultDto;
 
@@ -13,6 +13,9 @@ import com.lyc.zpush.common.ResultDto;
  */
 public interface PushService {
 
-	ResultDto pushToSingle(String appId, String appKey, String clientId, String content, Map<String, String> params, long timeout);
+	ResultDto pushToSingle(String appId, String appKey, String clientId, String content, JSONObject params, long timeout);
 	
+	ResultDto pushToApp(String appId, String appKey, String content, JSONObject params, long timeout);
+	
+	ResultDto pushToTag(String appId, String appKey, String tag, String content, JSONObject params, long timeout);
 }
