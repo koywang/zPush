@@ -56,7 +56,7 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
-		return null;
+		return new ResultDto(true);
 	}
 
 	/* (non-Javadoc)
@@ -83,7 +83,7 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
-		return null;
+		return new ResultDto(true);
 	}
 
 	/* (non-Javadoc)
@@ -110,7 +110,7 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
-		return null;
+		return new ResultDto(true);
 	}
 
 
