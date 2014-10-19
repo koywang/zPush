@@ -28,7 +28,7 @@ public class AppFacadeTest extends BaseTest{
 	public void registerAndroidAppTest() throws JSONException{
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appName", "testAndroidApp1");
-		JSONObject result = request(params, "/server/app/regAndroidApp", "POST", JSONObject.class);
+		JSONObject result = request(params, "/portal/app/regAndroidApp", "POST", JSONObject.class);
 		Assert.assertEquals(true, result.getBoolean("success"));
 	}
 	
@@ -36,7 +36,7 @@ public class AppFacadeTest extends BaseTest{
 	public void registerIosAppTest() throws JSONException{
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appName", "testIosApp2");
-		JSONObject result = request(params, "/server/app/regIosApp", "POST", JSONObject.class);
+		JSONObject result = request(params, "/portal/app/regIosApp", "POST", JSONObject.class);
 		Assert.assertEquals(true, result.getBoolean("success"));
 	}
 }

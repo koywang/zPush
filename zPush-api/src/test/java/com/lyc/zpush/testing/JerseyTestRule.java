@@ -42,7 +42,7 @@ public class JerseyTestRule implements TestRule{
 		.contextParam("contextConfigLocation",
 				"classpath:/applicationContext-test.xml")
 		.servletClass(SpringServlet.class)
-		.servletPath("/api/*")
+		.servletPath("/service/*")
 		.initParam(
 				"com.sun.jersey.config.property.resourceConfigClass",
 				"com.sun.jersey.api.core.PackagesResourceConfig")

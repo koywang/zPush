@@ -22,7 +22,7 @@ import com.lyc.zpush.service.AppService;
  * @since 2014年10月15日  下午2:04:36
  */
 @Service
-@Path("/server/app")
+@Path("/portal/app")
 public class AppFacade {
 	
 	@Autowired

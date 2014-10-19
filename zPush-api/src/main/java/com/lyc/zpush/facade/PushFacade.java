@@ -23,7 +23,7 @@ import com.lyc.zpush.service.PushService;
  * @since 2014年10月15日  下午2:04:44
  */
 @Service
-@Path("/server/push")
+@Path("/api/server/push")
 public class PushFacade {
 
 	@Autowired

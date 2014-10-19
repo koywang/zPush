@@ -13,10 +13,13 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.lyc.zpush.bean.App;
 import com.lyc.zpush.bean.Message;
+import com.lyc.zpush.bean.MessageHeader;
+import com.lyc.zpush.bean.PushType;
 import com.lyc.zpush.common.ResultDto;
 import com.lyc.zpush.dao.AppDao;
 import com.lyc.zpush.dao.MessageDao;
 import com.lyc.zpush.error.Error;
+import com.lyc.zpush.service.MQService;
 import com.lyc.zpush.service.PushService;
 
 /**
@@ -31,6 +34,9 @@ public class PushServiceImpl implements PushService{
 	
 	@Autowired
 	private AppDao appDao;
+	
+	@Autowired
+	private MQService mqService;
 
 	/* (non-Javadoc)
 	 * @see com.lyc.zpush.service.PushService#pushToSingle(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.codehaus.jettison.json.JSONObject, long)
@@ -56,6 +62,8 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
+		MessageHeader mHeader = new MessageHeader(appId,clientId,null,timeout==0?24*3600:timeout,PushType.Single,app.getAppType(),uuid);
+		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);
 	}
 
@@ -83,6 +91,8 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
+		MessageHeader mHeader = new MessageHeader(appId,null,null,timeout==0?24*3600:timeout,PushType.App,app.getAppType(),uuid);
+		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);
 	}
 
@@ -110,6 +120,8 @@ public class PushServiceImpl implements PushService{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
 		messageDao.save(message);
+		MessageHeader mHeader = new MessageHeader(appId,null,tag,timeout==0?24*3600:timeout,PushType.Tag,app.getAppType(),uuid);
+		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);
 	}
 

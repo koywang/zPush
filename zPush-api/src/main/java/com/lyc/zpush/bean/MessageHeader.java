@@ -8,7 +8,7 @@ package com.lyc.zpush.bean;
  * @author yuancen.li
  * @since 2014年10月15日  下午1:11:55
  */
-public class Meta {
+public class MessageHeader {
 
 	private String appId;
 	private String clientId;
@@ -17,6 +17,34 @@ public class Meta {
 	private PushType pushType;
 	private AppType appType;
 	private String uuid;
+	
+
+	/**
+	 * 
+	 */
+	public MessageHeader() {
+		super();
+	}
+	/**
+	 * @param appId
+	 * @param clientId
+	 * @param tag
+	 * @param timeout
+	 * @param pushType
+	 * @param appType
+	 * @param uuid
+	 */
+	public MessageHeader(String appId, String clientId, String tag,
+			long timeout, PushType pushType, AppType appType, String uuid) {
+		super();
+		this.appId = appId;
+		this.clientId = clientId;
+		this.tag = tag;
+		this.timeout = timeout;
+		this.pushType = pushType;
+		this.appType = appType;
+		this.uuid = uuid;
+	}
 	/**
 	 * @return the appId
 	 */

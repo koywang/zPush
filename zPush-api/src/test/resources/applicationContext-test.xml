@@ -12,4 +12,5 @@
 	<util:properties id="config" location="classpath:config.properties" />
 	
 	<import resource="classpath:spring-redis.xml" />
+	<import resource="classpath:spring-kafka.xml"/>
 </beans>

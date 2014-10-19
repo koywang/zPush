@@ -27,9 +27,32 @@ public class PushFacadeTest extends BaseTest{
 		params.add("appId", "app000015");
 		params.add("appKey", "5be5d41151d22dc3546ff3012e180616");
 		params.add("clientId", "client1");
-		params.add("content", "test");
+		params.add("content", "singlePushTest");
 		params.add("params", "{\"param1\":\"value1\",\"param2\":\"value\"}");
-		JSONObject result = request(params, "/server/push/pushToSingle", "POST", JSONObject.class);
+		JSONObject result = request(params, "/api/server/push/pushToSingle", "POST", JSONObject.class);
+		Assert.assertEquals(true, result.getBoolean("success"));
+	}
+	
+	@Test
+	public void pushToAppTest() throws JSONException{
+		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+		params.add("appId", "app000015");
+		params.add("appKey", "5be5d41151d22dc3546ff3012e180616");
+		params.add("content", "appPushTest");
+		params.add("params", "{\"param1\":\"value1\",\"param2\":\"value\"}");
+		JSONObject result = request(params, "/api/server/push/pushToApp", "POST", JSONObject.class);
+		Assert.assertEquals(true, result.getBoolean("success"));
+	}
+	
+	@Test
+	public void pushToTagTest() throws JSONException{
+		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+		params.add("appId", "app000015");
+		params.add("appKey", "5be5d41151d22dc3546ff3012e180616");
+		params.add("tag", "testTag");
+		params.add("content", "tagPushTest");
+		params.add("params", "{\"param1\":\"value1\",\"param2\":\"value\"}");
+		JSONObject result = request(params, "/api/server/push/pushToTag", "POST", JSONObject.class);
 		Assert.assertEquals(true, result.getBoolean("success"));
 	}
 }

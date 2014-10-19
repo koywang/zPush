@@ -6,11 +6,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-	<context:annotation-config />
-	<context:component-scan base-package="com.lyc.zpush" />
+	<bean id="kafkaProducer" class="kafka.javaapi.producer.Producer">
+		<constructor-arg index="0" ref="kafkaProducerConfig">	
+		</constructor-arg>
+	</bean>
 	
-	<util:properties id="config" location="classpath:config.properties" />
-	
-	<import resource="classpath:spring-redis.xml" />
-	<import resource="classpath:spring-kafka.xml"/>
+	<bean id="kafkaProducerConfig" class="kafka.producer.ProducerConfig">
+		<constructor-arg index="0">
+			<props>
+				<prop key="metadata.broker.list">${kafka.metadata.broker.list}</prop>
+				<prop key="serializer.class">${kafka.serializer.class}</prop>
+				<prop key="request.required.acks">${kafka.request.required.acks}</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+	 
 </beans>
