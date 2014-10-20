@@ -20,9 +20,14 @@ public class MessageDaoImpl extends RedisDaoSupport<Message> implements MessageD
 	 * @see com.lyc.zpush.dao.MessageDao#save(com.lyc.zpush.bean.Message)
 	 */
 	@Override
-	public void save(Message message) {
+	public boolean save(Message message) {
 		// TODO Auto-generated method stub
-		hset(KEY_MESSAGE, message.getUuid(), serialize(message));
+		long result = hset(KEY_MESSAGE, message.getUuid(), serialize(message));
+		if(result == 1l){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

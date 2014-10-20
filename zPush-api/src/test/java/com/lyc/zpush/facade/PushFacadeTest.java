@@ -5,7 +5,7 @@ package com.lyc.zpush.facade;
 
 import javax.ws.rs.core.MultivaluedMap;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -41,7 +41,7 @@ public class PushFacadeTest extends BaseTest{
 		params.add("content", "appPushTest");
 		params.add("params", "{\"param1\":\"value1\",\"param2\":\"value\"}");
 		JSONObject result = request(params, "/api/server/push/pushToApp", "POST", JSONObject.class);
-		Assert.assertEquals(true, result.getBoolean("success"));
+		Assert.assertEquals(true, result.getBoolean("success"));	
 	}
 	
 	@Test

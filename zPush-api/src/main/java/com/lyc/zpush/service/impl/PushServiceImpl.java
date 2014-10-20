@@ -61,7 +61,10 @@ public class PushServiceImpl implements PushService{
 		}else{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
-		messageDao.save(message);
+		boolean result = messageDao.save(message);
+		if(!result){
+			return new ResultDto(false,Error.MESSAGE_SAVE_FAILURE);
+		}
 		MessageHeader mHeader = new MessageHeader(appId,clientId,null,timeout==0?24*3600:timeout,PushType.Single,app.getAppType(),uuid);
 		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);
@@ -90,7 +93,10 @@ public class PushServiceImpl implements PushService{
 		}else{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
-		messageDao.save(message);
+		boolean result = messageDao.save(message);
+		if(!result){
+			return new ResultDto(false,Error.MESSAGE_SAVE_FAILURE);
+		}
 		MessageHeader mHeader = new MessageHeader(appId,null,null,timeout==0?24*3600:timeout,PushType.App,app.getAppType(),uuid);
 		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);
@@ -119,7 +125,10 @@ public class PushServiceImpl implements PushService{
 		}else{
 			message = new Message(uuid, content, JSON.parseObject(params.toString(), Map.class));
 		}
-		messageDao.save(message);
+		boolean result = messageDao.save(message);
+		if(!result){
+			return new ResultDto(false,Error.MESSAGE_SAVE_FAILURE);
+		}
 		MessageHeader mHeader = new MessageHeader(appId,null,tag,timeout==0?24*3600:timeout,PushType.Tag,app.getAppType(),uuid);
 		mqService.sendMessageHeader(mHeader);
 		return new ResultDto(true);

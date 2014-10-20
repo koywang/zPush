@@ -32,7 +32,7 @@ public class RedisDaoSupport<T> {
 	/*
 	 * usage: store increment id
 	 * datastruct: hash
-	 * spec: key:counter,field:appId,value:$counter
+	 * spec: key=counter,field=appId,value=$counter
 	 */
 	public static final String KEY_COUNTER = "counter";
 	public static final String FIELD_APPID = "appId";
@@ -40,16 +40,37 @@ public class RedisDaoSupport<T> {
 	/*
 	 * usage: store app
 	 * datastruct: hash
-	 * spec: key:app,field:$appid,value:$appBean
+	 * spec: key=app,field=$appid,value=$appBean
 	 */
 	public static final String KEY_APP = "app";
 	
 	/**
 	 * usage : store message
 	 * datastruct: hash
-	 * spec : key:msg,field:$uuid,value:$messageBean
+	 * spec : key=msg,field=$uuid,value=$messageBean
 	 */
 	public static final String KEY_MESSAGE = "msg";
+	
+	/**
+	 * usage : store bind relationship with appId,clientId and devId
+	 * datastruct : hash
+	 * spec : key=bind:$appId field=$clientId value=$devId
+	 */
+	public static final String KEY_BIND_PREFIX = "bind:";
+	
+	/**
+	 * usage : store bind relationship with appId,clientId and devId
+	 * datastruct : hash
+	 * spec : key=bind:$appId field=$devId value=$clientId
+	 */
+	public static final String KEY_BIND_REVERSE_PREFIX = "bind_r:";
+	
+	/**
+	 * usage : store tag
+	 * datastruct : set
+	 * spec : key=tag:appId:tag member:clientId
+	 */
+	public static final String KEY_TAG_PREFIX = "tag:";
 
 
 	@Autowired

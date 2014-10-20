@@ -15,7 +15,10 @@ public enum Error {
 	CLIENT_ID_INVALIED("0x0004","客户Id非法"),
 	CONTENT_NULL("0x0005","推送内容为空"),
 	APP_ID_NOT_EXIST("0x0006","应用Id不存在"),
-	TAG_NAME_INVALID("0x0007","标签名非法");
+	TAG_NAME_INVALID("0x0007","标签名非法"),
+	DEV_ID_INVALID("0x0008","设备Id非法"),
+	MESSAGE_SAVE_FAILURE("0x0009","消息保存失败"),
+	BIND_RELATIONSHIP_NOT_EXIST("0x0010","客户端绑定关系不存在");
 	
 	private String code;
 	private String desc;

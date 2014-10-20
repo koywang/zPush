@@ -5,7 +5,7 @@ package com.lyc.zpush.facade;
 
 import javax.ws.rs.core.MultivaluedMap;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;

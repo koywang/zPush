@@ -11,5 +11,5 @@ import com.lyc.zpush.bean.Message;
  */
 public interface MessageDao {
 
-	void save(Message message);
+	boolean save(Message message);
 }

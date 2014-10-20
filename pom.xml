@@ -10,7 +10,7 @@
 	<description>A notification push service</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.version>4.10</junit.version>
+		<junit.version>4.11</junit.version>
 		<fastjson.version>1.1.36</fastjson.version>
 	</properties>
 	<dependencies>
@@ -103,5 +103,7 @@
 	</developers>
 	<modules>
 		<module>zPush-api</module>
+		<module>zPush-server</module>
+		<module>zPush-client</module>
 	</modules>
 </project>
