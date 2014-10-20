@@ -7,3 +7,6 @@ zPush为移动应用开发者提供消息推送服务方案，目前处于设计
 * 推送服务
 * 客户端SDK
 * 管理门户
+
+##Wiki
+####https://github.com/lyc1116/zPush/wiki
