@@ -32,9 +32,6 @@ public class AppDaoImpl extends RedisDaoSupport<App> implements AppDao{
 	public App queryById(String appId) {
 		// TODO Auto-generated method stub
 		App app = deserialize(hget(KEY_APP, appId),App.class);
-		if(app == null){
-			return new App();
-		}
 		return app;
 	}
 

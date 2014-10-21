@@ -10,4 +10,6 @@ package com.lyc.zpush.service;
 public interface CommonService {
 
 	String getNextAppId();
+	
+	String getNextSdkId();
 }

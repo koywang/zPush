@@ -18,7 +18,11 @@ public enum Error {
 	TAG_NAME_INVALID("0x0007","标签名非法"),
 	DEV_ID_INVALID("0x0008","设备Id非法"),
 	MESSAGE_SAVE_FAILURE("0x0009","消息保存失败"),
-	BIND_RELATIONSHIP_NOT_EXIST("0x0010","客户端绑定关系不存在");
+	BIND_RELATIONSHIP_NOT_EXIST("0x0010","客户端绑定关系不存在"),
+	SDK_ID_INVALID("0x0011","SDKID不合法"),
+	SDK_ID_NOT_EXIST("0x0012","SDKID不存在"),
+	SDK_VERSIONE_INVALID("0x0013","SDK版本不合法"),
+	SDK_PARAMS_INVALIE("0x0014","SDK参数不合法");
 	
 	private String code;
 	private String desc;

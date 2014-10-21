@@ -20,6 +20,7 @@ import com.lyc.zpush.service.CommonService;
 public class CommonServiceImpl implements CommonService{
 	
 	private static final String APPID = "appId";
+	private static final String SDKID = "sdkId";
 	
 	@Autowired
 	private CommonDao commonDao;
@@ -43,6 +44,16 @@ public class CommonServiceImpl implements CommonService{
 		return getNextId(APPID, "app", 6);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.lyc.zpush.service.CommonService#getNextSdkId()
+	 */
+	@Override
+	public String getNextSdkId() {
+		// TODO Auto-generated method stub
+		return getNextId(SDKID, "sdk", 6);
+	}
+
+	
 	private String getNextId(String idName, String prefix, int len) {
 		long id = commonDao.nextCounter(idName);
 		if(len < 1) {
@@ -54,4 +65,5 @@ public class CommonServiceImpl implements CommonService{
 		return prefix + nfs[len - 1].format(id);
 	}
 
+	
 }

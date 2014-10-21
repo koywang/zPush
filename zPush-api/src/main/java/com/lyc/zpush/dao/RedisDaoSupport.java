@@ -71,6 +71,13 @@ public class RedisDaoSupport<T> {
 	 * spec : key=tag:appId:tag member:clientId
 	 */
 	public static final String KEY_TAG_PREFIX = "tag:";
+	
+	/**
+	 * usage : store sdk
+	 * datastruct : hash
+	 * spec : key=sdk field$sdkid value=$sdkBean
+	 */
+	public static final String KEY_SDK = "sdk";
 
 
 	@Autowired

@@ -47,7 +47,23 @@ public class ClientFacadeTest extends BaseTest{
 		params.add("tag", "tag_test");
 		params.add("clientId", clientId);
 		JSONObject result2 = request(params, "/api/client/setTag", "POST", JSONObject.class);
-		Assert.assertEquals(true, result2.getBoolean("success"));
+		Assert.assertEquals(true, result2.getBoolean("success"));	
+	}
+	
+	@Test
+	public void querySdkParamsTest() throws JSONException{
+		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+		params.add("version", "androidV0.1");
+		params.add("params", "{\"socketIdelTime\":180,\"socketHost\":\"127.0.0.1\",\"socketPort\":8888}");
+		JSONObject result1 = request(params, "/mgnt/sdk/addSdk", "POST", JSONObject.class);
+		String sdkId = result1.getString("result");
+		Assert.assertEquals(true, result1.getBoolean("success"));	
+		logger.info("sdkId : " + sdkId);
+		params.add("sdkId", sdkId);
+		JSONObject result2 = request(params, "/api/client/querySdkParams", "POST", JSONObject.class);
+		Assert.assertEquals(true, result2.getBoolean("success"));	
+		logger.info("sdkParams : " + result2.getString("result"));
 		
 	}
+	
 }

@@ -16,4 +16,6 @@ public interface ClientService {
 	ResultDto setTag(String appId, String devId, String tag , String clientId);
 	
 	ResultDto getClientId(String appId, String devId);
+	
+	ResultDto querySdkParams(String sdkId);
 }

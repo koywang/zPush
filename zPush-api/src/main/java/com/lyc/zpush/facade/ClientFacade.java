@@ -67,7 +67,7 @@ public class ClientFacade {
 	@POST
 	@Path("/getClientId")
 	@Produces({MediaType.APPLICATION_JSON+";charset=utf-8"})
-	public ResultDto setTag(@FormParam("appId") String appId,
+	public ResultDto getClientId(@FormParam("appId") String appId,
 							@FormParam("devId") String devId){
 		if(StringUtils.isBlank(appId)){
 			return new ResultDto(false, Error.APP_ID_INVALIED);
@@ -76,6 +76,16 @@ public class ClientFacade {
 			return new ResultDto(false, Error.DEV_ID_INVALID);
 		}
 		return clientService.getClientId(appId, devId);
+	}
+	
+	@POST
+	@Path("/querySdkParams")
+	@Produces({MediaType.APPLICATION_JSON+";charset=utf-8"})
+	public ResultDto querySdkParams(@FormParam("sdkId") String sdkId){
+		if(StringUtils.isBlank(sdkId)){
+			return new ResultDto(false, Error.APP_ID_INVALIED);
+		}
+		return clientService.querySdkParams(sdkId);
 	}
 	
 }
